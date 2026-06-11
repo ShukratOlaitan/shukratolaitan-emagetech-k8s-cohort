@@ -34,6 +34,8 @@ means processes in the container cant modify the files.
 
 Part 3 evidence: a screenshot (or copy-pasted terminal output) showing:
 docker container ls after step 3
+<img width="1557" height="505" alt="Screenshot 2026-06-11 at 14 48 06" src="https://github.com/user-attachments/assets/ea3f7fed-5e06-47fc-a3a2-f5dc0b3d6d6b" />
+
 
 The browser page after step 8 showing your custom message
 Hello from Shukurat
