@@ -161,7 +161,10 @@ CMD gunicorn -b 0.0.0.0:8080 app:app>
 
 ### `Dockerfile.secret`
 \`\`\`dockerfile
-<paste>
+<.git/, .gitignore
+__pycache__/, *.pyc
+Dockerfile*, *.md
+.env*>
 \`\`\`
 
 ### `.dockerignore`
