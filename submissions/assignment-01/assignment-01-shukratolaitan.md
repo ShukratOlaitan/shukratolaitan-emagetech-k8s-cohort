@@ -3,17 +3,23 @@
 **GitHub username:** <shukratolaitan>
 **Date completed:** 2026-04-25
 
-Question: After running the four commands above, how many images do you have? How many containers? Why?
+Question 1: What is the difference between rm file.txt and rm -rf directory/? Why is the second form considered dangerous?
+rm file.txt this command deletes the specific file. file.txt
+
+rm -rf directory/  deletes everything in the directory recursively. it is considered dangerous as it can delete necessary files.
+
+Question 2: After running the four commands above, how many images do you have? How many containers? Why?
 
 I previously had 18 images , I now have 8 images and 0 containers from running previous commands.
 
-Question: What's the difference between docker run -it alpine sh and docker exec -it sh? When would you use each?
+Question 3: What's the difference between docker run -it alpine sh and docker exec -it sh? When would you use each?
 
 docker exec -it web sh? Is used when you want to exec into a container that’s already running, which then opens a shell. 
 docker run -it alpine sh is used when you the container isn’t running yet and want to start a new container from the alpine image and opens a shell inside it.
 
 
 Part 1 reflection (3–5 sentences): which CLI command was new to you, and what did you use it for?
+
 printf "image\ncontainer\nvolume\nnetwork\nsystem\n" > commands.txt
 printf and new line. 
 
@@ -36,11 +42,16 @@ Part 3 evidence: a screenshot (or copy-pasted terminal output) showing:
 docker container ls after step 3
 <img width="1557" height="505" alt="Screenshot 2026-06-11 at 14 48 06" src="https://github.com/user-attachments/assets/ea3f7fed-5e06-47fc-a3a2-f5dc0b3d6d6b" />
 
+docker container ls
+CONTAINER ID   IMAGE        COMMAND                  CREATED             STATUS             PORTS                                     NAMES
+38d2a88014d7   nginx:1.25   "/docker-entrypoint.…"   About an hour ago   Up About an hour   0.0.0.0:8081->80/tcp, [::]:8081->80/tcp   practice-web
 
 The browser page after step 8 showing your custom message
 Hello from Shukurat
 
 The output of docker container inspect -f '{{.NetworkSettings.IPAddress}}' practice-web from step 9
+
+docker container inspect practice-web -f '{{range .NetworkSettings.Networks}}{{.IPAddress}}{{end}}'
 172.17.0.2
 
 One thing that surprised you about how Docker behaves.
