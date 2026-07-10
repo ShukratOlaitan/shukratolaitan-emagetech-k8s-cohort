@@ -596,17 +596,3 @@ This seems especially important for larger projects where build performance matt
 
 ---
 
-# Key Takeaways
-
-* Learned how `.dockerignore` affects Docker builds
-* Explored Docker image layers and image history
-* Understood how image IDs are generated
-* Practiced setting memory limits on containers
-* Learned the difference between `stop` and `kill`
-* Used restart policies and resource constraints
-* Pushed a custom image to Docker Hub
-* Discovered why container images should include all required tools during the build process
-
----
-
-## Assignment Complete ✅
