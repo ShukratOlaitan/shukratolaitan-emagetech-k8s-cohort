@@ -17,7 +17,7 @@ spec:
     spec:
       containers:
       - name: guestbook-ui
-        image: gcr.io/google-samples/gb-frontend:v4
+        image: nginx:alpine
         ports:
         - containerPort: 80
         resources:
