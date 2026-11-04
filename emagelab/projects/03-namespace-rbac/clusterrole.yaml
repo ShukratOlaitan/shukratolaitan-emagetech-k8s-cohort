@@ -1,0 +1,28 @@
+# clusterrole.yaml
+apiVersion: rbac.authorization.k8s.io/v1
+kind: ClusterRole
+metadata:
+  name: cluster-viewer
+rules:
+- apiGroups: [ "" ]
+  resources: [ "namespaces", "nodes" ]
+  verbs: [ "get", "list", "watch" ]
+---
+apiVersion: rbac.authorization.k8s.io/v1
+kind: ClusterRoleBinding
+metadata:
+  name: all-teams-viewer
+subjects:
+- kind: ServiceAccount
+  name: dev-user
+  namespace: dev
+- kind: ServiceAccount
+  name: staging-user
+  namespace: staging
+- kind: ServiceAccount
+  name: prod-user
+  namespace: prod
+roleRef:
+  kind: ClusterRole
+  name: cluster-viewer
+  apiGroup: rbac.authorization.k8s.io

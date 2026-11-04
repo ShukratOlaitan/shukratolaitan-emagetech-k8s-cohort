@@ -1,0 +1,9 @@
+rules:
+  custom:
+  - seriesQuery: 'http_requests_total{namespace!="",pod!=""}'
+    resources:
+      template: "<<.Resource>>"
+    name:
+      matches: ""
+      as: "packets_per_second"
+    metricsQuery: sum(rate(<<.Series>>{<<.LabelMatchers>>}[2m])) by (<<.GroupBy>>)

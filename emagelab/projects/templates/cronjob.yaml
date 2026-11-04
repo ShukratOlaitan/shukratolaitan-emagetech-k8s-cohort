@@ -1,0 +1,24 @@
+# templates/cronjob.yaml
+apiVersion: batch/v1
+kind: CronJob
+metadata:
+  name: nightly-backup
+spec:
+  schedule: "0 2 * * *"          # 2 AM daily
+  timeZone: "America/Chicago"
+  concurrencyPolicy: Forbid       # Skip if previous run still going
+  successfulJobsHistoryLimit: 3
+  failedJobsHistoryLimit: 1
+  jobTemplate:
+    spec:
+      backoffLimit: 2
+      template:
+        spec:
+          restartPolicy: OnFailure
+          containers:
+            - name: backup
+              image: postgres:15-alpine
+              command: ["/bin/sh", "-c", "pg_dump -h $DB_HOST -U $DB_USER $DB_NAME > /backups/backup_$(date +%Y%m%d).sql"]
+              resources:
+                requests: {cpu: 100m, memory: 128Mi}
+                limits: {cpu: 200m, memory: 256Mi}
