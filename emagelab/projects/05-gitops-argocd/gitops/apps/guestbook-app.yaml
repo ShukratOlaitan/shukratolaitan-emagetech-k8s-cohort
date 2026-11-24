@@ -8,7 +8,7 @@ spec:
   source:
     repoURL: https://github.com/ShukratOlaitan/shukratolaitan-emagetech-k8s-cohort.git
     targetRevision: main
-    path: gitops/apps/guestbook
+    path: emagelab/projects/05-gitops-argocd/gitops/apps/guestbook
   destination:
     server: https://kubernetes.default.svc
     namespace: guestbook
